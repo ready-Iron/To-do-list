@@ -43,7 +43,7 @@ class Tasks():
     def __init__(self, task_name, date, taskNumber):
         self.task_name = task_name
         self.date = date
-        self.status = True
+        self.status = "Open"
         self.taskNumber = taskNumber
 
 class Display():
@@ -52,7 +52,10 @@ class Display():
        "1: Create list ",
        "2: Add new task",
        "3: Remove task",
-       "4: View list",
+       "4: Change task status",
+       "5: View list",
+       "6: Sort list by date", 
+       "7: Sort list by status",
        "0: Exit",
     )
 
@@ -79,7 +82,21 @@ class Display():
                         todo.master_list.remove(item)
                         break
             elif menu_selection == "4":
+                changeStatus = int(input("\nWhat task would you like to change status to complete? "))
                 for item in todo.master_list:
+                    if item.taskNumber == changeStatus:
+                        item.status = "Completed"
+                        break
+            elif menu_selection == "5":
+                for item in todo.master_list:
+                    print("{} : Task: {}  |  Date: {}  | Status: {}".format(item.taskNumber, item.task_name, item.date, item.status))
+            elif menu_selection == "6":
+                sorted_master_list = sorted(todo.master_list, key=lambda x:x.date, reverse=True)
+                for item in sorted_master_list:
+                    print("{} : Task: {}  |  Date: {}  | Status: {}".format(item.taskNumber, item.task_name, item.date, item.status))
+            elif menu_selection == "7":
+                sorted_master_list = sorted(todo.master_list, key=lambda x:x.status, reverse=True)
+                for item in sorted_master_list:
                     print("{} : Task: {}  |  Date: {}  | Status: {}".format(item.taskNumber, item.task_name, item.date, item.status))
             else:
                 display_selection_error(menu_selection)
