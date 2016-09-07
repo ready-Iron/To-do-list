@@ -66,26 +66,20 @@ class Display():
             elif menu_selection == "1":
                 name = input("\nWhat would you like to name your list? ")
                 todo = Todo(name)
-                print(todo)
-                print(todo.name)
-                print(todo.master_list)
             elif menu_selection == "2":
                 task_name = input("\nWhat is your task? ")
                 date = datetime.datetime.now()
                 taskNumber = taskNumber + 1
                 task = Tasks(task_name, date, taskNumber)
                 todo.master_list.append(task)
-                print(task)
-                print(task.task_name)
-                print(task.date)
-                print(task.taskNumber)
-                print(task.status)
-                print(todo.master_list)
             elif menu_selection == "3":
-                pass
+                delete = int(input("\nWhat task would you like to remove"))
+                for item in todo.master_list:
+                    if item.taskNumber == delete:
+                        todo.master_list.remove(item)
+                        break
             elif menu_selection == "4":
                 for item in todo.master_list:
-                    # print(item.task_name)
                     print("{} : Task: {}  |  Date: {}  | Status: {}".format(item.taskNumber, item.task_name, item.date, item.status))
             else:
                 display_selection_error(menu_selection)
