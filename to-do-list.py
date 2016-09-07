@@ -21,7 +21,7 @@ class Todo():
     def __init__(self, name):
         """ may not need name as argument """
         self.name = name
-        self.todo = []
+        self.master_list = []
 
     def add_task():
         pass
@@ -33,17 +33,16 @@ class Todo():
         pass
         """ add later """
 
-    def sort_todo():
+    def sort_master_list():
         pass
         """ add later """
 
 
 class Tasks():
 
-    def __init__(self, task_name, date, note):
+    def __init__(self, task_name, date):
         self.task_name = task_name
         self.date = date
-        self.note = note
         self.status = True
 
 class Display():
@@ -63,8 +62,19 @@ class Display():
             elif menu_selection == "1":
                 name = input("\nWhat would you like to name your list? ")
                 todo = Todo(name)
+                print(todo)
+                print(todo.name)
+                print(todo.master_list)
             elif menu_selection == "2":
-                pass
+                task_name = input("\nWhat is your task? ")
+                date = datetime.datetime.now()
+                task = Tasks(task_name, date)
+                todo.master_list.append(task)
+                print(task)
+                print(task.task_name)
+                print(task.date)
+                print(task.status)
+                print(todo.master_list)
             elif menu_selection == "3":
                 pass
             else:
