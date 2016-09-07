@@ -61,7 +61,8 @@ class Display():
             if menu_selection == "0":
                 break
             elif menu_selection == "1":
-                pass
+                name = input("\nWhat would you like to name your list? ")
+                todo = Todo(name)
             elif menu_selection == "2":
                 pass
             elif menu_selection == "3":
