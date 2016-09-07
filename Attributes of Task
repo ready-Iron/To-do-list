@@ -1,0 +1,34 @@
+Attributes of Task
+status:  open / complete (boolen: true/false.. true = open, false = closed)
+date: y/m/d (type: date)
+note: string
+
+class Todo():
+  -- __init__ : name, empty python list
+  -- store (list) tasks (function) --- create python list of task
+  -- add tasks (function)
+  -- remove tasks (funtion)
+  -- change status (funtion)
+  -- sort list (function)
+
+Note: stick to 1 list option to start
+
+class Tasks()
+ -- initiate task
+ -- __init__ :  status, date, note, name
+
+class Display()
+  -- menu and prompt. 
+  -- one menu: create new list, add new task, remove task, display list, display sorted list
+
+
+Steps: 
+
+1. Code Classes
+    a. basic structure.. __init__ , 'pass'
+2. Code / Copy & Paste Display from text_adventure
+3. Code Classes
+    a. create functions to meet requirements:
+        i. create list
+        ii.. add task
+        iii. remove task
