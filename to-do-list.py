@@ -49,10 +49,10 @@ class Tasks():
 class Display():
 
     MENU_ITEMS = (
-       "1: ",
-       "2: ",
-       "3: ", 
-       "0: Go to next day",
+       "1: Create list ",
+       "2: Add new task",
+       "3: Remove task", 
+       "0: Exit",
     )
 
     def display_main(self):
@@ -74,6 +74,9 @@ def main():
     """
     Main Loop
     """
+
+    display = Display()
+    display.display_main()
 
 if __name__ == '__main__':
     main()
