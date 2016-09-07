@@ -40,10 +40,11 @@ class Todo():
 
 class Tasks():
 
-    def __init__(self, task_name, date):
+    def __init__(self, task_name, date, taskNumber):
         self.task_name = task_name
         self.date = date
         self.status = True
+        self.taskNumber = taskNumber
 
 class Display():
 
@@ -56,6 +57,8 @@ class Display():
     )
 
     def display_main(self):
+        taskNumber = 0
+
         while True:
             menu_selection = get_menu_selection(self.MENU_ITEMS)
             if menu_selection == "0":
@@ -69,11 +72,13 @@ class Display():
             elif menu_selection == "2":
                 task_name = input("\nWhat is your task? ")
                 date = datetime.datetime.now()
-                task = Tasks(task_name, date)
+                taskNumber = taskNumber + 1
+                task = Tasks(task_name, date, taskNumber)
                 todo.master_list.append(task)
                 print(task)
                 print(task.task_name)
                 print(task.date)
+                print(task.taskNumber)
                 print(task.status)
                 print(todo.master_list)
             elif menu_selection == "3":
@@ -81,7 +86,7 @@ class Display():
             elif menu_selection == "4":
                 for item in todo.master_list:
                     # print(item.task_name)
-                    print("Task: {}  |  Date: {}  | Status: {}".format(item.task_name, item.date, item.status))
+                    print("{} : Task: {}  |  Date: {}  | Status: {}".format(item.taskNumber, item.task_name, item.date, item.status))
             else:
                 display_selection_error(menu_selection)
 
