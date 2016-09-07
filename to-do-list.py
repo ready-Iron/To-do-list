@@ -50,7 +50,8 @@ class Display():
     MENU_ITEMS = (
        "1: Create list ",
        "2: Add new task",
-       "3: Remove task", 
+       "3: Remove task",
+       "4: View list",
        "0: Exit",
     )
 
@@ -77,6 +78,10 @@ class Display():
                 print(todo.master_list)
             elif menu_selection == "3":
                 pass
+            elif menu_selection == "4":
+                for item in todo.master_list:
+                    # print(item.task_name)
+                    print("Task: {}  |  Date: {}  | Status: {}".format(item.task_name, item.date, item.status))
             else:
                 display_selection_error(menu_selection)
 
